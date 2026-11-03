@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17100b">
+  <meta name="description" content="Miss Minutes AI — a voice-enabled clock assistant.">
+  <title>MISS MINUTES AI | TVA Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">◷</span><span>MISS MINUTES <small>TIME VARIANCE ASSISTANT</small></span></a>
+    <div class="top-actions">
+      <span class="status"><i></i> SYSTEM ONLINE</span>
+      <button id="settingsBtn" class="icon-btn" aria-label="Settings">⚙</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="hero panel">
+      <div class="hero-copy">
+        <p class="eyebrow">TIME VARIANCE AUTHORITY · PERSONAL ASSISTANT</p>
+        <h1>Well, hello there!</h1>
+        <p class="sub">I'm Miss Minutes, your helpful little time assistant. What can I do for you?</p>
+        <div class="clock-stage" aria-label="Animated clock mascot">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="mascot-shadow"></div>
+          <div class="mascot" id="mascot">
+            <div class="clock-top"></div>
+            <div class="clock-face">
+              <div class="face-shine"></div>
+              <span class="digit d12">12</span><span class="digit d3">3</span>
+              <span class="digit d6">6</span><span class="digit d9">9</span>
+              <div class="eye eye-left"><i></i></div><div class="eye eye-right"><i></i></div>
+              <div class="cheek cheek-left"></div><div class="cheek cheek-right"></div>
+              <div class="smile"></div>
+              <div class="hand hand-hour"></div><div class="hand hand-minute"></div><div class="pin"></div>
+            </div>
+            <div class="clock-feet"><span></span><span></span></div>
+          </div>
+          <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div><div class="spark spark-three">✦</div>
+        </div>
+        <div class="hero-status"><span class="pulse"></span><span id="mascotMood">READY TO HELP</span></div>
+      </div>
+      <div class="clock-info">
+        <p class="eyebrow">LOCAL TIME</p>
+        <div id="liveTime" class="live-time">--:--:--</div>
+        <div id="liveDate" class="live-date">Loading date…</div>
+        <div class="quick-actions">
+          <button class="quick" data-prompt="Tell me the current time and date.">⌚ Time now</button>
+          <button class="quick" data-prompt="Give me a friendly greeting.">✦ Say hello</button>
+          <button class="quick" data-prompt="Help me plan my day.">▤ Plan my day</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <section class="panel chat-panel">
+        <div class="section-heading"><div><p class="eyebrow">COMMUNICATION CHANNEL</p><h2>Talk to Miss Minutes</h2></div><span class="secure-label">● PRIVATE SESSION</span></div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="message assistant"><div class="avatar">◷</div><div class="bubble"><b>Miss Minutes</b><p>Howdy! You can type to me or use the microphone. I'm ready when you are.</p></div></div>
+        </div>
+        <div class="composer">
+          <button id="micBtn" class="mic-btn" title="Start voice input" aria-label="Start voice input">🎙</button>
+          <input id="chatInput" type="text" placeholder="Ask me anything…" autocomplete="off">
+          <button id="sendBtn" class="send-btn">SEND ➤</button>
+        </div>
+        <div class="chat-tools"><span id="voiceStatus">Voice input depends on browser support.</span><button id="speakToggle" class="text-btn">🔊 Voice replies: ON</button></div>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel tool-panel">
+          <div class="section-heading"><div><p class="eyebrow">QUICK ACCESS</p><h2>Launch destination</h2></div></div>
+          <div class="app-grid">
+            <button data-app="whatsapp"><span>☏</span>WhatsApp</button>
+            <button data-app="youtube"><span>▶</span>YouTube</button>
+            <button data-app="instagram"><span>◎</span>Instagram</button>
+            <button data-app="gmail"><span>✉</span>Gmail</button>
+            <button data-app="maps"><span>⌖</span>Maps</button>
+            <button data-app="github"><span>⌘</span>GitHub</button>
+          </div>
+          <p class="hint">Your browser may ask which app to open. Some apps may open their website instead.</p>
+        </section>
+
+        <section class="panel tool-panel">
+          <div class="section-heading"><div><p class="eyebrow">TEMPORAL REMINDERS</p><h2>Reminder desk</h2></div></div>
+          <form id="reminderForm" class="reminder-form">
+            <input id="reminderText" maxlength="120" placeholder="What should I remind you?" required>
+            <input id="reminderTime" type="datetime-local" required>
+            <button class="gold-btn" type="submit">＋ ADD REMINDER</button>
+          </form>
+          <div id="reminderList" class="reminder-list"><p class="empty">No reminders yet.</p></div>
+          <p class="hint">Reminders are stored on this device. Keep the site open for alerts; browser notifications require permission.</p>
+        </section>
+
+        <section class="panel tool-panel">
+          <div class="section-heading"><div><p class="eyebrow">KNOWLEDGE ARCHIVE</p><h2>Search the web</h2></div></div>
+          <form id="searchForm" class="search-form"><input id="searchInput" placeholder="Search the web…" required><button class="gold-btn">SEARCH ↗</button></form>
+          <p class="hint">Opens search results in a new browser tab.</p>
+        </section>
+      </aside>
+    </section>
+
+    <section class="panel memory-panel">
+      <div class="section-heading"><div><p class="eyebrow">USER-CONTROLLED STORAGE</p><h2>Memory settings</h2></div><span class="secure-label">ON THIS DEVICE</span></div>
+      <p class="memory-copy">Memory is off until you turn it on. If enabled, this demo saves your conversation notes in this browser only. It does not sync between devices.</p>
+      <div class="memory-controls"><label class="toggle-label"><input type="checkbox" id="memoryToggle"> <span class="toggle"></span> Allow local memory</label><button id="viewMemory" class="outline-btn">VIEW SAVED MEMORY</button><button id="clearMemory" class="danger-btn">CLEAR MEMORY</button></div>
+      <div id="memoryArea" class="memory-area" hidden></div>
+    </section>
+  </main>
+
+  <footer>MISS MINUTES AI · FAN-INSPIRED PERSONAL PROJECT · NOT AN OFFICIAL MARVEL PRODUCT</footer>
+
+  <dialog id="settingsDialog" class="settings-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form>
+    <p class="eyebrow">ASSISTANT PREFERENCES</p><h2>Settings</h2>
+    <label class="setting-row">Assistant name <input id="assistantName" value="Miss Minutes" maxlength="30"></label>
+    <label class="setting-row">Voice language <select id="voiceLanguage"><option value="en-IN">English (India)</option><option value="en-US">English (US)</option><option value="en-GB">English (UK)</option></select></label>
+    <p class="hint">Voice availability and voice choices depend on your browser and device.</p>
+    <button id="saveSettings" class="gold-btn">SAVE SETTINGS</button>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
